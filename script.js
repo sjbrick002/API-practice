@@ -17,3 +17,9 @@ function renderGif() {
             alert("Sorry, no GIF :<")
         });
 };
+
+async function renderGif2() {
+    let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=j9Fx029FDZgqxE7VIUxuSDoDRmqd1S2z&q=${input.value}`, {mode: "cors"});
+    let imgData = await response.json();
+    imgElement.src = imgData.data[0].images.original.url;
+};
